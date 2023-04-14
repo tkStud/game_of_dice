@@ -1,0 +1,74 @@
+html,body {
+  background: linear-gradient(to right, #f7f7f7 50%, #ffffff 50%);
+	height: 100%;
+	font-family:"Lato-Black.ttf" ;
+	color: #8c8c8c;
+	font-size: 1.2em;
+	
+}
+body{
+	border-top-width: 15px;
+	border-bottom-width: 15px;
+	border-right-width: 25px;
+	border-left-width: 25px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #9f7f56, #ab8d6b, #a78154, #af9d89, #89563b) 1;
+	
+}
+
+.test,.test2,.test3,.test4,h3{
+	text-align: center;
+}
+.test3{
+	margin-bottom: 40px;
+}
+
+.second-row{
+	height: 50vh;
+}
+
+.custom-container{
+	height: 100%;
+	border: none;
+}
+
+button{
+	border: none;
+	background-color: #f7f7f7;
+}
+
+.score-1,.score-2{
+	font-size:3em;
+	text-align: center;
+}
+
+.current-score{
+	height: 120px;
+	width: 180px;
+	background-color: #eb4d4d;
+	
+}
+
+.label{
+	color: #383838;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+.current-1,.current-2{
+	font-size: 2.5em;
+	text-align: center;
+	color: #f7f7f7;
+}
+
+.point-1,.point-2{
+	font-size: 100px;
+	color: #eb4d4d;
+}
+
+button > img{
+	height: 35px;
+	width: 35px;
+
+}
+
