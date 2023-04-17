@@ -13,28 +13,28 @@
 		<div class="row mt-5">
 			<div class="col-6 mx-auto">
 				<div class="test">
-					<button><img src="pict/plus-circle.svg" alt=""></button><span> NEW GAME</span>
+					<button type="button" id="new-game"><img src="pict/plus-circle.svg" alt=""></button><span> NEW GAME</span>
 				</div>
 			</div>
 		</div>
 		<div class="row row-cols-12 justify-content-center align-items-center second-row ">
 			<div class="col-4 offset-2 mx-auto">
-				<h3>PLAYER 1 <span class="point-1">  .</span></h3>
-				<div class="score-1">0</div>
+				<h3>PLAYER 1 <span class="point-1" id="pointer-1">  .</span></h3>
+				<div class="score-1" id="score-1">0</div>
 			</div>
 			<div class="col-4 offset-2 mx-auto d-flex justify-content-center">
 				<div class="test2"><canvas id="dice" class="mt-5 mb-5"></canvas></div>
 			</div>
 			<div class="col-4 offset-2 mx-auto ">
-				<h3>PLAYER 2 <span class="point-2">  .</span></h3>
-				<div class="score-2">0</div>
+				<h3>PLAYER 2 <span class="point-2" id="pointer-2">  .</span></h3>
+				<div class="score-2" id="score-2">0</div>
 			</div>
 		</div>
 			<div class="row row-cols-12 justify-content-center mb-3 ">
 				<div class="col-4 offset-2  mx-auto d-flex justify-content-center">
 					<div class="current-score">
 						<p class="label">CURRENT</p>
-						<p class="current-1">0</p>
+						<p class="current-1" id="current-1">0</p>
 					</div>
 				</div>
 				<div class="col-4 offset-2 mx-auto ">
@@ -42,13 +42,13 @@
 						<button type="button" id="roll-dice"><img src="pict/arrow-clockwise.svg" alt=""></button> ROLL DICE
 					</div>
 					<div class="test4">
-						<button><img src="pict/arrow-bar-down.svg" alt=""></button> HOLD
+						<button type="button" id="hold"><img src="pict/arrow-bar-down.svg" alt=""></button> HOLD
 					</div>
 				</div>
 				<div class="col-4 offset-2 mx-auto d-flex justify-content-center">
 					<div class="current-score">
 						<p class="label">CURRENT</p>
-						<p class="current-2">0</p>
+						<p class="current-2" id="current-2">0</p>
 					</div>
 				</div>
 		</div>

@@ -1,5 +1,13 @@
 let btnDice = document.getElementById('roll-dice')
 let dice = document.getElementById('dice');
+let newGame = document.getElementById('new-game')
+let pointer1 = document.getElementById('pointer-1')
+let pointer2 = document.getElementById('pointer-2')
+let current1 = document.getElementById('current-1')
+let current2 = document.getElementById('current-2')
+let score1 = document.getElementById('score-1')
+let score2 = document.getElementById('score-2')
+let hold = document.getElementById('hold')
 
 //dice drawing
 let ctx = dice.getContext('2d');
@@ -49,7 +57,7 @@ const circlesOfDice = [
 function rollDice() {
   const result = Math.floor(Math.random() * 6) + 1;
   const circle = circlesOfDice[result - 1];
-
+ 
   // Draw the white background
   ctx.fillStyle='white';
   ctx.fillRect(80,0,150,150);
@@ -63,10 +71,102 @@ function rollDice() {
     ctx.arc(x, y, radius, 0, Math.PI * 2);
     ctx.fill();
     ctx.closePath();
-		
-  }
+	}
+  return result
 }
 
-btnDice.addEventListener("click", () => {
-	rollDice()
-})
+let score = 0;
+let player = true;
+let currentScore1 = 0;
+let currentScore2 = 0;
+let buttonClicked = false;
+
+//function for change player and display score and pointer
+function rulesOfTheGame(diceOne){
+
+  if(player  && diceOne == 1){
+    
+    pointer1.style.display = "none";
+    pointer2.style.display = "initial";
+    player = false;
+    score1.textContent = 0;
+    score = 0;
+    
+  } else if (!player && diceOne == 1){
+    pointer1.style.display = "initial";
+    pointer2.style.display = "none";
+    player = true;
+    score2.textContent = 0;
+    score = 0;
+  }
+  
+  if (player){
+    score1.textContent = score;
+ } else if(!player){
+    score2.textContent =score;
+   
+  }
+}
+//function for save the current score and check player win..
+function holdScore(){
+  if(player){
+    currentScore1 += score;
+    current1.textContent = currentScore1;
+    score = 0;
+    score1.textContent = score;
+    pointer1.style.display = "none";
+    pointer2.style.display = "initial";
+    player = false;
+    if (currentScore1 >= 100) {
+      alert("Joueur 1 a gagné!");
+      btnDice.disabled = true;
+    }
+  } else {
+    currentScore2 += score;
+    current2.textContent = currentScore2;
+    score = 0;
+    score2.textContent = score;
+    pointer1.style.display = "initial";
+    pointer2.style.display = "none";
+    player = true;
+    if (currentScore2 >= 100) {
+      alert("Joueur 2 a gagné!");
+      btnDice.disabled = true;
+  }
+}
+}
+
+
+
+// function for start of game
+function startGame(){
+  
+  newGame.addEventListener("click" , () => {
+    pointer1.style.display = "initial";
+    pointer2.style.display = "none"
+    score = 0;
+    score1.textContent = 0;
+    score2.textContent = 0;
+    currentScore1 = 0;
+    currentScore2 = 0;
+    current1.textContent = 0;
+    current2.textContent = 0;
+    player = true;
+    btnDice.disabled = false;
+  })
+  btnDice.addEventListener("click", () =>{
+    
+    const result = rollDice();
+    score += result;
+    console.log(score);
+    rulesOfTheGame(result);
+  })
+  hold.addEventListener("click", () =>{
+    holdScore();
+  })
+}
+
+
+startGame();
+
+
